@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,25 +12,37 @@ body {
 .grid-container {
     display: grid;
     grid-template-areas:
-'header header header header'
-'aside main main main'
-'footer footer footer footer';
+'header header header header header'
+'aside main main main main'
+'footer footer footer footer footer';
 }
 
 .wrapper {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(18, 18, 186, 1) 46%, rgba(0, 212, 255, 1) 100%);
-    width: 100vw;
-    height: 100vh;
+    /*width: 100vw;*/
+    /*height: 100vh;*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hello-world {
-    font-size: 50px;
+    font-size: 15px;
     color: white;
     text-shadow: black 1px 0 10px;
+    padding: 10px;
+    margin: 0px;
+    text-align: justify;
+    text-justify: distribute;
+}
+
+.header-text {
+    color: white;
+}
+
+.footer-text {
+    font-family: Nadeem, serif;
 }
 
 /**, *::before, *::after {
@@ -33,7 +51,7 @@ body {
     padding: 0;
 }*/
 
-ul {
+.navigation {
     padding: 0 10px 0 10px;
     margin: 0;
 }
@@ -44,16 +62,30 @@ li {
 
 header {
     grid-area: header;
+    text-align: center;
+    height: 10vh;
+    background-color: #2C2F33;
+    border-bottom: 1px solid white;
 }
 
 aside {
     grid-area: aside;
+    height: 80vh;
+    width: 10vw;
 }
 
 main {
     grid-area: main;
+    height: 80vh;
+    width: 90vw;
+
 }
 
 footer {
     grid-area: footer;
+    text-align: center;
+    background-color: #2C2F33;
+    color: white;
+    height: 10vh;
+    border-top: 1px solid white;
 }
