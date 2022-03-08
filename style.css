@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Prompt:wght@100&display=swap');
 
 * {
     box-sizing: border-box;
@@ -38,11 +38,12 @@ body {
 }
 
 .header-text {
-    color: white;
+    color: black;
+    font-family: 'Hubballi', cursive;
 }
 
 .footer-text {
-    font-family: Nadeem, serif;
+    font-family: 'Hubballi', cursive;
 }
 
 /**, *::before, *::after {
@@ -52,26 +53,41 @@ body {
 }*/
 
 .navigation {
-    padding: 0 10px 0 10px;
+    padding: 10px;
     margin: 0;
 }
 
-li {
+.nav-li {
     list-style: none;
+}
+
+.nav-li:nth-child(2) {
+    margin-top: 10px;
+}
+
+.nav-a {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-family: 'Prompt', sans-serif;
 }
 
 header {
     grid-area: header;
     text-align: center;
     height: 10vh;
-    background-color: #2C2F33;
-    border-bottom: 1px solid white;
+    background: rgb(131, 171, 185);
+    background: linear-gradient(345deg, rgba(131, 171, 185, 1) 28%, rgba(233, 233, 233, 1) 100%);
+    border-bottom: 1px solid black;
 }
 
 aside {
+    background: rgb(121, 9, 106);
+    background: linear-gradient(90deg, rgba(121, 9, 106, 1) 30%, rgba(2, 0, 36, 1) 100%);
     grid-area: aside;
     height: 80vh;
     width: 10vw;
+    border-right: 1px solid white;
 }
 
 main {
@@ -88,4 +104,13 @@ footer {
     color: white;
     height: 10vh;
     border-top: 1px solid white;
+}
+
+.wrapper-img {
+    padding: 10px;
+    width: auto;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
