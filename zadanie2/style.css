@@ -15,6 +15,10 @@ body {
 'header header header header header'
 'aside main main main main'
 'footer footer footer footer footer';
+
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 9fr;
+    -ms-grid-rows: 1fr 8fr 1fr;
 }
 
 .wrapper {
@@ -71,6 +75,10 @@ header {
     background: rgb(131, 171, 185);
     background: linear-gradient(345deg, rgba(131, 171, 185, 1) 28%, rgba(233, 233, 233, 1) 100%);
     border-bottom: 1px solid black;
+
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
 }
 
 aside {
@@ -80,6 +88,9 @@ aside {
     height: 80vh;
     width: 10vw;
     border-right: 1px solid white;
+
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
 }
 
 main {
@@ -87,6 +98,8 @@ main {
     height: 80vh;
     width: 90vw;
 
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
 }
 
 footer {
@@ -96,6 +109,10 @@ footer {
     color: white;
     height: 10vh;
     border-top: 1px solid white;
+
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
 }
 
 .wrapper-img {
