@@ -20,8 +20,6 @@ body {
 .wrapper {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(18, 18, 186, 1) 46%, rgba(0, 212, 255, 1) 100%);
-    /*width: 100vw;*/
-    /*height: 100vh;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,12 +43,6 @@ body {
 .footer-text {
     font-family: 'Hubballi', cursive;
 }
-
-/**, *::before, *::after {
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-}*/
 
 .navigation {
     padding: 10px;
