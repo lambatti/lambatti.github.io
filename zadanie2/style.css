@@ -12,9 +12,9 @@ body {
 .grid-container {
     display: grid;
     grid-template-areas:
-'header header header header header'
-'aside main main main main'
-'footer footer footer footer footer';
+'header header'
+'aside main'
+'footer footer';
 
     display: -ms-grid;
     -ms-grid-columns: 1fr 9fr;
