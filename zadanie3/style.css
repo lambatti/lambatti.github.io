@@ -20,7 +20,14 @@ body {
 
 .tile {
     /*grid-area: tile;*/
-    width: 33vh;
+    width: 100%;
     height: 33vh;
-    background-color: black;
+    background-color: mediumaquamarine;
+    border: 1px solid black;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
