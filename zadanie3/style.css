@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /*grid-template-areas: 'tile tile tile' 'tile tile tile' 'tile tile tile';*/
+
+    display: -ms-grid;
+    -ms-grid-columns: 3fr;
+    -ms-grid-rows: 3fr;
+}
+
+.tile {
+    /*grid-area: tile;*/
+    width: 33vh;
+    height: 33vh;
+    background-color: black;
+}
