@@ -8,6 +8,8 @@ tile7 = document.getElementById('tile7');
 tile8 = document.getElementById('tile8');
 tile9 = document.getElementById('tile9');
 
+resetButton = document.getElementById('resetButton');
+
 whoWon = document.getElementById('whoWon');
 
 const divX = '<p class="tile-X pressed">X</p>'
@@ -21,6 +23,10 @@ let isWon = false
 let nextElement = 'O'
 
 tiles = document.querySelectorAll(".tile")
+
+resetButton.addEventListener('click', function () {
+    window.location.reload();
+})
 
 tiles.forEach(tile => {
     tile.addEventListener("click", function () {
@@ -86,7 +92,6 @@ function addTileToSolution(tile) {
             break
         }
     }
-    console.log(solution)
 }
 
 function getNumberToInsert(element) {
@@ -167,8 +172,6 @@ function checkResult() {
         setWhoWon('D')
     }
 }
-
-
 
 function changeTileStyle(i,j) {
     let tileToChange;
