@@ -39,7 +39,7 @@ body {
 
 }
 
-button, button:disabled, button:hover {
+button, button:hover {
     background-color: paleturquoise;
 }
 
@@ -55,8 +55,4 @@ button, button:disabled, button:hover {
 
 .tile-X {
     color: green;
-}
-
-.won {
-    background-color: black;
 }

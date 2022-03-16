@@ -1,9 +1,20 @@
+tile1 = document.getElementById('tile1');
+tile2 = document.getElementById('tile2');
+tile3 = document.getElementById('tile3');
+tile4 = document.getElementById('tile4');
+tile5 = document.getElementById('tile5');
+tile6 = document.getElementById('tile6');
+tile7 = document.getElementById('tile7');
+tile8 = document.getElementById('tile8');
+tile9 = document.getElementById('tile9');
+
 const divX = '<p class="tile-X pressed">X</p>'
 const divO = '<p class="tile-O pressed">O</p>'
 
 let solution = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 let moves = 0
+let isWon = false
 
 let nextElement = 'O'
 
@@ -14,6 +25,7 @@ tiles.forEach(tile => {
         addTile(tile)
         addTileToSolution(tile)
         checkResult()
+        disableButtonsIfWon()
         changeNextElement()
         tile.disabled = true
     })
@@ -94,31 +106,94 @@ function checkResult() {
            rowSum = solution[i][0] + solution[i][1] + solution[i][2]
            columnSum = solution[0][i] + solution[1][i] + solution[2][i]
            if (rowSum === 3) {
+               changeTileStyle(i,0)
+               changeTileStyle(i,1)
+               changeTileStyle(i,2)
                alert('Wygrał O')
+               isWon = true
                return
            } else if (rowSum === -3) {
+               changeTileStyle(i,0)
+               changeTileStyle(i,1)
+               changeTileStyle(i,2)
                alert('Wygrał X')
+               isWon = true
                return
            } else if (columnSum === 3) {
+               changeTileStyle(0,i)
+               changeTileStyle(1,i)
+               changeTileStyle(2,i)
                alert('Wygrał O')
+               isWon = true
                return
            } else if (columnSum === -3) {
+               changeTileStyle(0,i)
+               changeTileStyle(1,i)
+               changeTileStyle(2,i)
                alert('Wygrał X')
+               isWon = true
                return
            }
        }
        diagonalSum1 = solution[0][0] + solution[1][1] + solution[2][2]
        diagonalSum2 = solution[0][2] + solution[1][1] + solution[2][0]
-       if (diagonalSum1 === 3 || diagonalSum2 === 3) {
+       if (diagonalSum1 === 3) {
+           changeTileStyle(0,0)
+           changeTileStyle(1,1)
+           changeTileStyle(2,2)
            alert('Wygrał O')
+           isWon = true
            return
-       } else if (diagonalSum1 === -3 || diagonalSum2 === -3) {
+       }
+       else if (diagonalSum2 === 3) {
+           changeTileStyle(0,2)
+           changeTileStyle(1,1)
+           changeTileStyle(2,0)
+           alert('Wygrał O')
+           isWon = true
+           return
+       }
+       else if (diagonalSum1 === -3) {
+           changeTileStyle(0,0)
+           changeTileStyle(1,1)
+           changeTileStyle(2,2)
            alert('Wygrał X')
+           isWon = true
+           return
+       }
+       else if (diagonalSum2 === -3) {
+           changeTileStyle(0,2)
+           changeTileStyle(1,1)
+           changeTileStyle(2,0)
+           alert('Wygrał X')
+           isWon = true
            return
        }
     }
     if(moves === 9) {
         alert('Remis')
+    }
+}
+
+function changeTileStyle(i,j) {
+    let tileToChange;
+    if(i === 0 && j === 0) tileToChange = tile1
+    else if(i === 0 && j === 1) tileToChange = tile2
+    else if(i === 0 && j === 2) tileToChange = tile3
+    else if(i === 1 && j === 0) tileToChange = tile4
+    else if(i === 1 && j === 1) tileToChange = tile5
+    else if(i === 1 && j === 2) tileToChange = tile6
+    else if(i === 2 && j === 0) tileToChange = tile7
+    else if(i === 2 && j === 1) tileToChange = tile8
+    else if(i === 2 && j === 2) tileToChange = tile9
+    tileToChange.style.backgroundColor = 'black'
+}
+
+function disableButtonsIfWon() {
+    if (isWon === true) {
+        tiles.forEach(tile => {
+            tile.disabled = true
+        })
     }
 }
 
