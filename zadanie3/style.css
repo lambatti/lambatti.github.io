@@ -18,13 +18,13 @@ body {
 
 .grid-container {
     display: grid;
+    display: -ms-grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     column-gap:1vh;
     row-gap: 1vh;
-    display: -ms-grid;
-    -ms-grid-columns: 3fr;
-    -ms-grid-rows: 3fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
 }
 
 .tile {
@@ -36,6 +36,7 @@ body {
     cursor: pointer;
 
     display: flex;
+    display: -ms-flex;
     justify-content: center;
     align-items: center;
 
@@ -64,6 +65,7 @@ button, button:hover {
 
 .text {
     display: flex;
+    display: -ms-flex;
     height: 10vh;
     font-family: 'Archivo', sans-serif;
     font-size: 5vh;
@@ -88,4 +90,51 @@ button, button:hover {
     height: 5vh;
     cursor: pointer;
     border: 0;
+}
+
+/*Internet Explorer */
+
+#tile1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+
+#tile2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+}
+
+#tile3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+
+#tile4 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+}
+
+#tile5 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+}
+
+#tile6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+}
+
+#tile7 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+
+#tile8 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+}
+
+#tile9 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
 }
