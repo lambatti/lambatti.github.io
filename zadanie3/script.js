@@ -8,6 +8,8 @@ tile7 = document.getElementById('tile7');
 tile8 = document.getElementById('tile8');
 tile9 = document.getElementById('tile9');
 
+whoWon = document.getElementById('whoWon');
+
 const divX = '<p class="tile-X pressed">X</p>'
 const divO = '<p class="tile-O pressed">O</p>'
 
@@ -21,13 +23,12 @@ let nextElement = 'O'
 tiles = document.querySelectorAll(".tile")
 
 tiles.forEach(tile => {
-    tile.addEventListener("click", function (param) {
+    tile.addEventListener("click", function () {
         addTile(tile)
         addTileToSolution(tile)
         checkResult()
-        disableButtonsIfWon()
+        disableButtons(tile)
         changeNextElement()
-        tile.disabled = true
     })
 })
 
@@ -109,29 +110,25 @@ function checkResult() {
                changeTileStyle(i,0)
                changeTileStyle(i,1)
                changeTileStyle(i,2)
-               alert('Wygrał O')
-               isWon = true
+               setWhoWon('O')
                return
            } else if (rowSum === -3) {
                changeTileStyle(i,0)
                changeTileStyle(i,1)
                changeTileStyle(i,2)
-               alert('Wygrał X')
-               isWon = true
+               setWhoWon('X')
                return
            } else if (columnSum === 3) {
                changeTileStyle(0,i)
                changeTileStyle(1,i)
                changeTileStyle(2,i)
-               alert('Wygrał O')
-               isWon = true
+               setWhoWon('O')
                return
            } else if (columnSum === -3) {
                changeTileStyle(0,i)
                changeTileStyle(1,i)
                changeTileStyle(2,i)
-               alert('Wygrał X')
-               isWon = true
+               setWhoWon('X')
                return
            }
        }
@@ -141,39 +138,37 @@ function checkResult() {
            changeTileStyle(0,0)
            changeTileStyle(1,1)
            changeTileStyle(2,2)
-           alert('Wygrał O')
-           isWon = true
+           setWhoWon('O')
            return
        }
        else if (diagonalSum2 === 3) {
            changeTileStyle(0,2)
            changeTileStyle(1,1)
            changeTileStyle(2,0)
-           alert('Wygrał O')
-           isWon = true
+           setWhoWon('O')
            return
        }
        else if (diagonalSum1 === -3) {
            changeTileStyle(0,0)
            changeTileStyle(1,1)
            changeTileStyle(2,2)
-           alert('Wygrał X')
-           isWon = true
+           setWhoWon('X')
            return
        }
        else if (diagonalSum2 === -3) {
            changeTileStyle(0,2)
            changeTileStyle(1,1)
            changeTileStyle(2,0)
-           alert('Wygrał X')
-           isWon = true
+           setWhoWon('X')
            return
        }
     }
     if(moves === 9) {
-        alert('Remis')
+        setWhoWon('D')
     }
 }
+
+
 
 function changeTileStyle(i,j) {
     let tileToChange;
@@ -186,15 +181,41 @@ function changeTileStyle(i,j) {
     else if(i === 2 && j === 0) tileToChange = tile7
     else if(i === 2 && j === 1) tileToChange = tile8
     else if(i === 2 && j === 2) tileToChange = tile9
-    tileToChange.style.backgroundColor = 'black'
+    tileToChange.classList.add('tileWon')
 }
 
-function disableButtonsIfWon() {
+function disableButtons(tile) {
     if (isWon === true) {
         tiles.forEach(tile => {
             tile.disabled = true
+            tile.style.cursor = 'default'
+            tile.style.hover = false
         })
     }
+    else {
+        tile.disabled = true
+        tile.style.cursor = 'default'
+    }
+}
+
+function setWhoWon(winner) {
+    let whoWonDiv
+    switch (winner) {
+        case 'O': {
+            whoWonDiv = '<p>WYGRAŁ <span class="tile-O">O</span></p>'
+            break
+        }
+        case 'X': {
+            whoWonDiv = '<p>WYGRAŁ <span class="tile-X">X</span></p>'
+            break
+        }
+        case 'D': {
+            whoWonDiv = '<p>REMIS</p>'
+            break
+        }
+    }
+    isWon = true
+    whoWon.innerHTML = whoWonDiv
 }
 
 function changeNextElement() {
